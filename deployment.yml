@@ -6,7 +6,7 @@
     - docker_service:
         project_name: hello-world
         definition:
-          version: '3'
+          version: '2'
           services:
             web:
               image: "hello-world:{{ service_tag | default ('latest') }}"
