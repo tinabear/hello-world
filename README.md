@@ -7,7 +7,7 @@
 ## Build & Test before deploying
 - Use git post-commit push notification to trigger Jenkins CI pipeline.
 - Run docker build to generate docker image.
-- Start a docker container and run some smoke tests against this container.
+- Start a docker container and run some smoke tests against this container. The image passed smoke test will be uploaded to the docker registry.
 - The whole process is managed by Jenkins pipelines.
 
 ## Versioning
