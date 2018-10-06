@@ -1,0 +1,22 @@
+- name: deploy hello-world
+  hosts: docker
+  connection: local
+  gather_facts: no
+  tasks:
+    - docker_service:
+        project_name: hello-world
+        definition:
+          version: '3'
+          services:
+            web:
+              image: "hello-world:{{ service_tag | default ('latest') }}"
+              ports:
+                - "80:{{ service_port | default(80) }}"
+      register: output
+
+    - debug:
+        var: output
+
+    - assert:
+        that:
+          - "web.hello-world_1.state.running"
